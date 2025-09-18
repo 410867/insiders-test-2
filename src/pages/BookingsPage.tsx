@@ -1,4 +1,4 @@
-/*
+
 import React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -8,16 +8,17 @@ const BookingsPage = () => {
   return (
     <Container sx={{ py: 4 }}>
       <Typography variant="h4" gutterBottom>Bookings</Typography>
-      {/!* BookingList + BookingForm добавим на шаге 4 *!/}
+      {/* BookingList + BookingForm добавим на шаге 4 */}
     </Container>
   );
 };
 
 
 export default BookingsPage;
-*/
 
 
+
+/*
 
 import React, { useEffect, useMemo, useState } from 'react';
 import { Container, Typography, Paper, Grid, MenuItem, TextField,
@@ -120,3 +121,4 @@ const BookingsPage = () => {
 };
 
 export default BookingsPage;
+*/
