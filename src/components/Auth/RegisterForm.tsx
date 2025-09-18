@@ -1,9 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import Alert from '@mui/material/Alert';
+import { TextField, Button, Stack, Alert } from '@mui/material';
 import { registerWithEmail } from '../../firebase/auth';
 import { useNavigate } from 'react-router-dom';
 

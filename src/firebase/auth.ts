@@ -1,10 +1,11 @@
 import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
+  onAuthStateChanged,
   signOut,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   updateProfile,
-  User,
-} from 'firebase/auth';
+  User } from 'firebase/auth';
+
 import { auth } from './config';
 
 export async function registerWithEmail(
@@ -26,5 +27,3 @@ export function loginWithEmail(email: string, password: string) {
 export function logout() {
   return signOut(auth);
 }
-
-export type AuthUser = Pick<User, 'uid' | 'email' | 'displayName'>;

@@ -6,7 +6,6 @@ import { theme } from './app/theme';
 import Navbar from './components/Layout/Navbar';
 import { AuthProvider } from './context/AuthContext';
 
-
 const App = () => {
   const element = useRoutes(routes);
   return (
@@ -19,6 +18,5 @@ const App = () => {
     </ThemeProvider>
   );
 };
-
 
 export default App;

@@ -15,19 +15,29 @@ export function RoomForm({
   onSubmit: (values: RoomFormValues) => Promise<void> | void;
   submitLabel?: string;
 }) {
-  const { control, handleSubmit, formState: { isSubmitting, errors } } = useForm<RoomFormValues>({
+  const {
+    control,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+  } = useForm<RoomFormValues>({
     defaultValues: { name: '', description: '', ...(initialValues || {}) },
   });
 
   return (
-    <form onSubmit={handleSubmit(async (v) => { await onSubmit(v); })} noValidate>
+    <form onSubmit={handleSubmit(async (v) => void (await onSubmit(v)))} noValidate>
       <Stack spacing={2}>
         <Controller
           name="name"
           control={control}
           rules={{ required: { value: true, message: 'Name is required' } }}
           render={({ field }) => (
-            <TextField {...field} label="Name" error={!!errors.name} helperText={errors.name?.message} fullWidth />
+            <TextField
+              {...field}
+              label="Name"
+              error={!!errors.name}
+              helperText={errors.name?.message}
+              fullWidth
+            />
           )}
         />
         <Controller
@@ -37,7 +47,9 @@ export function RoomForm({
             <TextField {...field} label="Description" multiline minRows={2} fullWidth />
           )}
         />
-        <Button type="submit" variant="contained" disabled={isSubmitting}>{submitLabel}</Button>
+        <Button type="submit" variant="contained" disabled={isSubmitting}>
+          {submitLabel}
+        </Button>
       </Stack>
     </form>
   );

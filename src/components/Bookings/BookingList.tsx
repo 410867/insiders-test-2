@@ -18,17 +18,26 @@ export function BookingList({
 }) {
   return (
     <List>
-      {bookings.map(b => (
-        <ListItem key={b.id}
-          secondaryAction={canEdit && (
-            <>
-              <IconButton edge="end" aria-label="edit" onClick={() => onEdit(b)}><EditIcon /></IconButton>
-              <IconButton edge="end" aria-label="delete" onClick={() => onDelete(b)}><DeleteIcon /></IconButton>
-            </>
-          )}
+      {bookings.map((b) => (
+        <ListItem
+          key={b.id}
+          secondaryAction={
+            canEdit && (
+              <>
+                <IconButton edge="end" aria-label="edit" onClick={() => onEdit(b)}>
+                  <EditIcon />
+                </IconButton>
+                <IconButton edge="end" aria-label="delete" onClick={() => onDelete(b)}>
+                  <DeleteIcon />
+                </IconButton>
+              </>
+            )
+          }
         >
           <ListItemText
-            primary={`${dayjs(b.start.toDate()).format('YYYY-MM-DD HH:mm')} → ${dayjs(b.end.toDate()).format('YYYY-MM-DD HH:mm')}`}
+            primary={`${dayjs(b.start.toDate()).format('YYYY-MM-DD HH:mm')} → ${dayjs(
+              b.end.toDate(),
+            ).format('YYYY-MM-DD HH:mm')}`}
             secondary={b.description}
           />
         </ListItem>
@@ -36,3 +45,4 @@ export function BookingList({
     </List>
   );
 }
+

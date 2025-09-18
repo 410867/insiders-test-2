@@ -1,5 +1,3 @@
-/*
-
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers';
@@ -22,7 +20,12 @@ export function BookingForm({
   onSubmit: (values: { start: Date; end: Date; description?: string }) => Promise<void> | void;
   submitLabel?: string;
 }) {
-  const { control, handleSubmit, setError, formState: { isSubmitting, errors } } = useForm<BookingFormValues>({
+  const {
+    control,
+    handleSubmit,
+    setError,
+    formState: { isSubmitting, errors },
+  } = useForm<BookingFormValues>({
     defaultValues: {
       start: initialValues?.start ?? dayjs().minute(0).second(0),
       end: initialValues?.end ?? dayjs().add(1, 'hour').minute(0).second(0),
@@ -35,7 +38,11 @@ export function BookingForm({
       setError('root', { message: 'Start and End are required' });
       return;
     }
-    await onSubmit({ start: v.start.toDate(), end: v.end.toDate(), description: v.description });
+    await onSubmit({
+      start: v.start.toDate(),
+      end: v.end.toDate(),
+      description: v.description,
+    });
   };
 
   return (
@@ -68,12 +75,11 @@ export function BookingForm({
             )}
           />
 
-          <Button type="submit" variant="contained" disabled={isSubmitting}>{submitLabel}</Button>
+          <Button type="submit" variant="contained" disabled={isSubmitting}>
+            {submitLabel}
+          </Button>
         </Stack>
       </form>
     </LocalizationProvider>
   );
 }
-
-
-*/
